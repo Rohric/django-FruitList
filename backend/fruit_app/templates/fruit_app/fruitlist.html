@@ -2,15 +2,42 @@
 {% load static %}
 {% block content %}
   <h1>Fruit List</h1>
+  <a href="{% url 'info' %}">Infos über Früchte</a>
 
   <ul>
     {% for fruit in fruits %}
       <li>
-        <img src="{% static 'fruit_app/img/' %}{{ fruit.name }}.jpg" />
+        <img src="{% static fruit.img %}" alt="{{ fruit.name }}" />
         {{ fruit.name }} -
         {{ fruit.farbe }} -
         {{ fruit.gewicht }} g
       </li>
+    {% endfor %}
+  </ul>
+
+  <h2>Bestellt</h2>
+
+  <ul>
+    {% for fruit in fruits %}
+      {% if fruit.is_ordered %}
+        <li>
+          <img src="{% static fruit.img %}" alt="{{ fruit.name }}" />
+          {{ fruit.name }}
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+
+  <h2>Nicht bestellt</h2>
+
+  <ul>
+    {% for fruit in fruits %}
+      {% if not fruit.is_ordered %}
+        <li>
+          <img src="{% static fruit.img %}" alt="{{ fruit.name }}" />
+          {{ fruit.name }}
+        </li>
+      {% endif %}
     {% endfor %}
   </ul>
 {% endblock %}
