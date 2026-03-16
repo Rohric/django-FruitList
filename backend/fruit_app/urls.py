@@ -2,6 +2,6 @@ from django.urls import path
 from .views import send_fruits
 
 
-urspatterns = [
+urlpatterns = [
     path('', send_fruits),
 ]
