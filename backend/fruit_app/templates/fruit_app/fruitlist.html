@@ -1,43 +1,53 @@
 {% extends 'fruit_app/base.html' %}
 {% load static %}
 {% block content %}
-  <h1>Fruit List</h1>
-  <a href="{% url 'info' %}">Infos über Früchte</a>
+  <a class="info-link" href="{% url 'info' %}">Infos über Früchte</a>
 
-  <ul>
-    {% for fruit in fruits %}
-      <li>
-        <img src="{% static fruit.img %}" alt="{{ fruit.name }}" />
-        {{ fruit.name }} -
-        {{ fruit.farbe }} -
-        {{ fruit.gewicht }} g
-      </li>
-    {% endfor %}
-  </ul>
-
-  <h2>Bestellt</h2>
-
-  <ul>
-    {% for fruit in fruits %}
-      {% if fruit.is_ordered %}
-        <li>
+  <div class="list-section">
+    <h2>Alle Früchte</h2>
+    <ul class="fruit-list">
+      {% for fruit in fruits %}
+        <li class="fruit-item">
           <img src="{% static fruit.img %}" alt="{{ fruit.name }}" />
-          {{ fruit.name }}
+          <div class="fruit-details">
+            <span class="fruit-name">{{ fruit.name }}</span>
+            <span class="fruit-info">{{ fruit.farbe }} - {{ fruit.gewicht }} g</span>
+          </div>
         </li>
-      {% endif %}
-    {% endfor %}
-  </ul>
+      {% endfor %}
+    </ul>
+  </div>
 
-  <h2>Nicht bestellt</h2>
 
-  <ul>
-    {% for fruit in fruits %}
-      {% if not fruit.is_ordered %}
-        <li>
+  <div class="list-section">
+    <h2>Bestellt</h2>
+    <ul class="fruit-list">
+      {% for fruit in fruits %}
+        {% if fruit.is_ordered %}
+          <li class="fruit-item">
+            <img src="{% static fruit.img %}" alt="{{ fruit.name }}" />
+            <div class="fruit-details">
+              <span class="fruit-name">{{ fruit.name }}</span>
+            </div>
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+
+  <div class="list-section">
+    <h2>Nicht bestellt</h2>
+    <ul class="fruit-list">
+      {% for fruit in fruits %}
+        {% if not fruit.is_ordered %}
+        <li class="fruit-item">
           <img src="{% static fruit.img %}" alt="{{ fruit.name }}" />
-          {{ fruit.name }}
+          <div class="fruit-details">
+            <span class="fruit-name">{{ fruit.name }}</span>
+          </div>
         </li>
-      {% endif %}
-    {% endfor %}
-  </ul>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
 {% endblock %}

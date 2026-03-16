@@ -1,9 +1,121 @@
-h1 {
-    color:red;
-    font-size:32px;
+/* General Body Styles */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+    background-color: #f8f9fa;
+    color: #333;
 }
 
-h2 {
-    color:green;
-    font-size:24px;
+/* Container */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header */
+.site-header {
+    background-color: #fff;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 20px;
+}
+
+.site-header h1 {
+    color: #007bff;
+    font-size: 3em;
+    margin: 0;
+}
+
+.site-header img {
+    max-width: 100%;
+    height: auto;
+    max-height: 250px;
+    margin-top: 15px;
+    border-radius: 8px;
+}
+
+/* General Link Styles */
+a.info-link {
+    display: inline-block;
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-bottom: 30px;
+    transition: background-color 0.2s;
+}
+
+a.info-link:hover {
+    background-color: #0056b3;
+}
+
+
+/* List Sections */
+.list-section {
+    margin-bottom: 40px;
+}
+
+.list-section h2 {
+    font-size: 2em;
+    color: #343a40;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* Fruit List Grid */
+.fruit-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+/* Fruit Item Card */
+.fruit-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.2s;
+}
+
+.fruit-item:hover {
+    transform: translateY(-5px);
+}
+
+.fruit-item img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.fruit-item .fruit-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.fruit-item .fruit-name {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #333;
+}
+
+.fruit-item .fruit-info {
+    font-size: 0.9em;
+    color: #666;
+    margin-top: 5px;
 }
